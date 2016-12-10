@@ -28,18 +28,18 @@
 ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
 ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
 
-User Function BalRodov
+User Function unoBalRodov
 
-Private cPesoAt      := Space(30)
-Private cPesStr    := Space(30)     
+Private cPesoAt  := Space(30)
+Private cPesStr  := Space(30)     
 Private cCfg     :="COM1:4800,n,8,1"
 Private nH       := 0
 
 
 SetPrvt("oDlg1","oSay1","oSay2","oPesStr","oPeso","oSBtn1")
 
-oDlg1      := MSDialog():New( 091,232,304,578,"Balança rodoviária",,,.F.,,,,,,.T.,,,.T. )
-oSay1      := TSay():New( 028,016,{||"STRING DA COM1"},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,060,008)
+oDlg1      := MSDialog():New( 091,232,304,578,"Bascula",,,.F.,,,,,,.T.,,,.T. )
+oSay1      := TSay():New( 028,016,{||"STRING DE COM1"},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,060,008)
 oSay2      := TSay():New( 045,017,{||"PESO TRATADO"},oDlg1,,,.F.,.F.,.F.,.T.,CLR_BLACK,CLR_WHITE,059,008)
 oPesStr    := TGet():New( 028,088,{|u| If(PCount()>0,cPesStr:=u,cPesStr)},oDlg1,060,008,'',,CLR_BLACK,CLR_WHITE,,,,.T.,"",,,.F.,.F.,,.F.,.F.,"","cPesStr",,)
 oPeso      := TGet():New( 048,088,{|u| If(PCount()>0,cPesoAt:=u,cPesoAt)},oDlg1,060,008,'',,CLR_BLACK,CLR_WHITE,,,,.T.,"",,,.F.,.F.,,.F.,.F.,"","cPesoAt",,)
@@ -77,7 +77,7 @@ cCfg      :="COM1:4800,n,8,1"
 
 lRet       := msOpenPort(nH,cCfg)
 if(!lRet)
- Alert("Falha ao conectar com a porta serial")
+ Alert("No se pudo conectar al puerto serie")
  Return
 EndIf
 
