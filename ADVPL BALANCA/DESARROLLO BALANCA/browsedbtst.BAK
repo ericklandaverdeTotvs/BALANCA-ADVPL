@@ -1,5 +1,4 @@
 #include "TOTVS.CH"
-#Include 
 //---------------------------------------------------------
 // Exemplo de Browse com uso de Tabela
 //---------------------------------------------------------
@@ -10,7 +9,7 @@ User Function BrowseDBTst()
     DbSelectArea('SD4')
     DBSETORDER(2)
     //D4_FILIAL+D4_OP+D4_COD+D4_LOCAL
-    DBSEEK(xfilial("SD4") + (cDatos)->C2_OP + (cDatos)->C2_COD + (cDatos)->C2_COD)
+    DBSEEK(xfilial("SD4") + (cDatos)->C2_OP + (cDatos)->C2_COD + (cDatos)->C2_COD
 
     oBrowse := BrGetDDB():New( 1,1,260,156,,,,oDlg,,,,,,,,,,,,.F.,'SD4',.T.,,.F.,,, )
     oBrowse:AddColumn(TCColumn():New('Codigo'               ,{||SD4->D4_COD },,,,'LEFT',,.F.,.F.,,,,.F.,))

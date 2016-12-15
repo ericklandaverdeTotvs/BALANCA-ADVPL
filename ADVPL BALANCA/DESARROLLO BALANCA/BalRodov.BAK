@@ -46,6 +46,7 @@ oPeso      := TGet():New( 048,088,{|u| If(PCount()>0,cPesoAt:=u,cPesoAt)},oDlg1,
 oSBtn1     := SButton():New( 072,120,1,{||LerPeso()},oDlg1,,"Recibir", )
 oSBtn2     := SButton():New( 085,120,1,{||writePeso()},oDlg1,,"Enviar", )
 
+
 oDlg1:Activate(,,,.T.)
 
 Return
@@ -113,7 +114,7 @@ if(!lRet)
 EndIf
 _sMensag:=CHR(27)+CHR(64)
 msWrite(nH,_sMensag)
- Alert("Esta pasando por el Boton2"+_sMensag)
+ Alert("Esta pasando por el Boton2"+_sMensag:)
 Sleep(200)
 
 msClosePort(nH) 
