@@ -1,16 +1,24 @@
 #include "TOTVS.CH"
-#Include 
 //---------------------------------------------------------
 // Exemplo de Browse com uso de Tabela
 //---------------------------------------------------------
 User Function BrowseDBTst()
 
   DEFINE DIALOG oDlg TITLE "Componentes de la Orden de Produccion" FROM 180,180 TO 550,700 PIXEL
-  
+    
+    cQuery  := " SELECT *"
+    cQuery  += " FROM "+RetSQLName("SC2")
+    cQuery  += " WHERE  C2_FILIAL = '"+xFILIAL("SC2")+"' AND C2_OK != '' AND D_E_L_E_T_ <> '*' " 
+    cQuery  += " ORDER BY C2_NUM"
+    cQuery  := changequery(cQuery)
+
+    cDatos := GetNextAlias()
+    dbUseArea(.T.,"TOPCONN",TCGENQRY(,,cQuery),cDatos,.T.,.T.) 
+
     DbSelectArea('SD4')
     DBSETORDER(2)
     //D4_FILIAL+D4_OP+D4_COD+D4_LOCAL
-    DBSEEK(xfilial("SD4") + (cDatos)->C2_OP + (cDatos)->C2_COD + (cDatos)->C2_COD)
+    DBSEEK(xfilial("SD4") + (cDatos)->C2_NUM + (cDatos)->C2_PRODUTO + (cDatos)->C2_LOCAL)
 
     oBrowse := BrGetDDB():New( 1,1,260,156,,,,oDlg,,,,,,,,,,,,.F.,'SD4',.T.,,.F.,,, )
     oBrowse:AddColumn(TCColumn():New('Codigo'               ,{||SD4->D4_COD },,,,'LEFT',,.F.,.F.,,,,.F.,))

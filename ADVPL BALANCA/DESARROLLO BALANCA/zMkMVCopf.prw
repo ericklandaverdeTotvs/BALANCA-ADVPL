@@ -3,7 +3,7 @@
 #Include 'Protheus.ch'
 #Include 'FwMVCDef.ch'
  
-/*/{Protheus.doc} zMkMVC
+/*/{Protheus.doc} zMkMVCopf
 MarkBrow em MVC da tabela de Artistas
 @author Atilio
 @since 03/09/2016
@@ -34,8 +34,7 @@ User Function zMkMVCopf()
 	//bLDblClick	Code-Block	Code-Block com a execução do duplo clique na coluna
 	//bHeaderClick	Code-Block	Code-Block com a execução do clique no header da coluna */
 
-	oMark:SetDescription('MI PAPA ERS HIJO DEL SANTO')
-	//oMark:SetDescription('ORDENES DE PRODUCCION FIRMES |PROCESO DE PESADO |')
+	oMark:SetDescription('ORDENES DE PRODUCCION FIRMES |PROCESO DE PESADO |')
 	oMark:SetFieldMark( 'C2_OK' )
 
     //Setando LegendaS
@@ -128,7 +127,7 @@ User Function zMarkProc()
     Local nCt      := 0
      
     //Percorrendo os registros da ZZ1
-
+/*
 	cQuery  := " SELECT C2_FILIAL,C2_NUM"
 	cQuery  += " FROM "+RetSQLName("SC2")
 	cQuery  += " WHERE  C2_FILIAL = '"+xFILIAL("SC2")+"' AND C2_OK != '' AND D_E_L_E_T_ <> '*' " 
@@ -140,7 +139,7 @@ User Function zMarkProc()
 
 	cDatos := GetNextAlias()
 	dbUseArea(.T.,"TOPCONN",TCGENQRY(,,cQuery),cDatos,.T.,.T.) 
-
+*/
 
 	SC2->(DbGoTop())
 	While !SC2->(EoF())
